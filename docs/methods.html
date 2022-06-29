@@ -43,6 +43,21 @@ nb_path: "nbs/methods.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="cell-1"></a></p>
+<h2 id="1.-Bottom-Up">1. Bottom Up<a class="anchor-link" href="#1.-Bottom-Up"> </a></h2><p>The most basic hierarchical reconciliation is performed using an Bottom-Up strategy. It was proposed for the first time by Orcutt in 1968.
+The corresponding hierarchical "projection" matrix is defined as:</p>
+<p>{% raw %}
+$$\mathbf{P}_{\text{BU}} = [\mathbf{0}_{\mathrm{[b],[a]}}\;|\;\mathbf{I}_{\mathrm{[b][b]}}]$$
+{% endraw %}</p>
+<ul>
+<li><a href="http://www.jstor.org/stable/1815532">Orcutt, G.H., Watts, H.W., &amp; Edwards, J.B.(1968). Data aggregation and information loss. The American Economic Review, 58 , 773{787)</a></li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -54,7 +69,7 @@ nb_path: "nbs/methods.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="bottom_up" class="doc_header"><code>bottom_up</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bottom_up</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>)</p>
+<h4 id="bottom_up" class="doc_header"><code>bottom_up</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bottom_up</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>idx_bottom</code></strong>:<code>List</code>[<code>int</code>])</p>
 </blockquote>
 
 </div>
@@ -85,7 +100,53 @@ nb_path: "nbs/methods.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="top_down" class="doc_header"><code>top_down</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>top_down</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>, <strong><code>idx_bottom</code></strong>:<code>List</code>[<code>int</code>], <strong><code>method</code></strong>:<code>str</code>)</p>
+<h2 id="BottomUp" class="doc_header"><code>class</code> <code>BottomUp</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L31" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>BottomUp</code>()</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="cell-2"></a></p>
+<h2 id="2.-Top-Down">2. Top Down<a class="anchor-link" href="#2.-Top-Down"> </a></h2><p>The Top Down hierarchical reconciliation method, distributes the total aggregate predictions and decomposes it down the hierarchy using proportions $\mathbf{p}_{\mathrm{[b]}}$ that can be actual historical values or estimated.</p>
+<p>{% raw %}
+$$\mathbf{P}=[\mathbf{p}_{\mathrm{[b]}}\;|\;\mathbf{0}_{\mathrm{[b][a,b\;-1]}}]$$
+{% endraw %}</p>
+<ul>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/for.3980090304">Disaggregation methods to expedite product line forecasting. Journal of Forecasting, 9 , 233–254. doi:10.1002/for.3980090304</a></li>
+<li><a href="https://doi.org/10.1016/S0305-0548(99">An investigation of aggregate variable time series forecast strategies with specific subaggregate time series statistical correlation. Computers and Operations Research, 26 , 1133–1149. doi:10.1016/S0305-0548(99)00017-9</a>00017-9)</li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="top_down" class="doc_header"><code>top_down</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>top_down</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>, <strong><code>idx_bottom</code></strong>:<code>List</code>[<code>int</code>], <strong><code>method</code></strong>:<code>str</code>)</p>
 </blockquote>
 
 </div>
@@ -116,7 +177,52 @@ nb_path: "nbs/methods.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="crossprod" class="doc_header"><code>crossprod</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L53" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>crossprod</code>(<strong><code>x</code></strong>)</p>
+<h2 id="TopDown" class="doc_header"><code>class</code> <code>TopDown</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L68" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TopDown</code>(<strong><code>method</code></strong>:<code>str</code>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="cell-3"></a></p>
+<h2 id="3.-Min-Trace">3. Min Trace<a class="anchor-link" href="#3.-Min-Trace"> </a></h2><p>This reconciliation algorithm proposed by Wickramasuriya et al. depends on a generalized least squares estimator and an estimator of the covariance matrix of the coherency errors $\mathbf{W}_{h}$. The Min Trace algorithm minimizes the squared errors for the coherent forecasts under an unbiasedness assumption; the solution has a closed form.</p>
+<p>{% raw %}
+$$\mathbf{P}_{\text{MinT}} = \left(\mathbf{S}^{\intercal}\mathbf{W}_{h}\mathbf{S}\right)^{-1} \mathbf{S}^{\intercal} \mathbf{W}^{-1}_{h}$$
+{% endraw %}</p>
+<ul>
+<li><a href="https://robjhyndman.com/publications/mint/">Wickramasuriya, S. L., Athanasopoulos, G., &amp; Hyndman, R. J. (2019). Optimal forecast reconciliation for hierarchical and grouped time series through trace minimization. Journal of the American Statistical Association, 114 , 804–819. doi:10.1080/01621459.2018.1448825.</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="crossprod" class="doc_header"><code>crossprod</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>crossprod</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -147,7 +253,7 @@ nb_path: "nbs/methods.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="min_trace" class="doc_header"><code>min_trace</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L57" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>min_trace</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>residuals</code></strong>:<code>ndarray</code>, <strong><code>method</code></strong>:<code>str</code>)</p>
+<h4 id="min_trace" class="doc_header"><code>min_trace</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L89" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>min_trace</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>residuals</code></strong>:<code>ndarray</code>, <strong><code>method</code></strong>:<code>str</code>)</p>
 </blockquote>
 
 </div>
@@ -178,7 +284,165 @@ nb_path: "nbs/methods.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="empirical_risk_minimization" class="doc_header"><code>empirical_risk_minimization</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L103" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>empirical_risk_minimization</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>method</code></strong>:<code>str</code>, <strong><code>lambda_reg</code></strong>:<code>float</code>=<em><code>0.01</code></em>)</p>
+<h2 id="MinTrace" class="doc_header"><code>class</code> <code>MinTrace</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L135" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MinTrace</code>(<strong><code>method</code></strong>:<code>str</code>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="erm" class="doc_header"><code>erm</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L151" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>erm</code>(<strong><code>S</code></strong>:<code>ndarray</code>, <strong><code>y_hat</code></strong>:<code>ndarray</code>, <strong><code>method</code></strong>:<code>str</code>, <strong><code>lambda_reg</code></strong>:<code>float</code>=<em><code>0.01</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="cell-4"></a></p>
+<h2 id="4.-Empirical-Risk-Minimization">4. Empirical Risk Minimization<a class="anchor-link" href="#4.-Empirical-Risk-Minimization"> </a></h2><p>The Empirical Risk Minimization reconciliation strategy relaxes the unbiasedness assumptions from
+previous reconciliation methods like MinT and optimizes square errors between the reconciled predictions
+and the validation data to obtain an optimal reconciliation matrix P.</p>
+<p>The exact solution for $\mathbf{P}$ (<code>method='exact'</code>) follows the expression:</p>
+<p>{% raw %}
+$$\mathbf{P}^{*} = \left(\mathbf{S}^{\intercal}\mathbf{S}\right)^{-1}\mathbf{Y}^{\intercal}\hat{\mathbf{Y}}\left(\hat{\mathbf{Y}}\hat{\mathbf{Y}}\right)^{-1}$$
+{% endraw %}</p>
+<p>The alternative Lasso regularized $\mathbf{P}$ solution (<code>method='lasso'</code>) is useful when the observations of validation data is 
+limited or the exact solution has low numerical stability.</p>
+<p>{% raw %}
+$$\mathbf{P}^{*} = \text{argmin}_{\mathbf{P}} ||\mathbf{Y}-\mathbf{S} \mathbf{P} \hat{Y} ||^{2}_{2} + \lambda ||\mathbf{P}-\mathbf{P}_{\text{BU}}||_{1}$$
+{% endraw %}</p>
+<ul>
+<li><a href="https://doi.org/10.1145/3292500.3330976">Ben Taieb, S., &amp; Koo, B. (2019). Regularized regression for hierarchical forecasting without unbiasedness conditions. In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining KDD '19 (p. 1337{1347). New York, NY, USA: Association for Computing Machinery.</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="AdamOptimizer" class="doc_header"><code>class</code> <code>AdamOptimizer</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L185" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AdamOptimizer</code>(<strong><code>params</code></strong>, <strong><code>learning_rate_init</code></strong>=<em><code>0.001</code></em>, <strong><code>beta_1</code></strong>=<em><code>0.9</code></em>, <strong><code>beta_2</code></strong>=<em><code>0.999</code></em>, <strong><code>epsilon</code></strong>=<em><code>1e-08</code></em>, <strong><code>l1_reg</code></strong>=<em><code>0</code></em>)</p>
+</blockquote>
+<p>Stochastic gradient descent optimizer with Adam</p>
+<p>Note: All default values are from the original Adam paper</p>
+
+<pre><code>Parameters
+----------
+params : list, length = len(coefs_) + len(intercepts_)
+    The concatenated list containing coefs_ and intercepts_ in MLP model.
+    Used for initializing velocities and updating params
+learning_rate_init : float, default=0.001
+    The initial learning rate used. It controls the step-size in updating
+    the weights
+beta_1 : float, default=0.9
+    Exponential decay rate for estimates of first moment vector, should be
+    in [0, 1)
+beta_2 : float, default=0.999
+    Exponential decay rate for estimates of second moment vector, should be
+    in [0, 1)
+epsilon : float, default=1e-8
+    Value for numerical stability
+
+Attributes
+----------
+learning_rate : float
+    The current learning rate
+t : int
+    Timestep
+ms : list, length = len(params)
+    First moment vectors
+vs : list, length = len(params)
+    Second moment vectors
+
+References
+----------
+[1] Kingma, Diederik, and Jimmy Ba (2014) "Adam: A method for
+    stochastic optimization."
+
+[2] Sashank J. Reddi, Satyen Kale, Sanjiv Kumar (2019). "On the
+    Convergence of Adam and Beyond.".
+    https://arxiv.org/abs/1904.09237v1
+
+[3] Manzil Zaheer, Sashank Reddi, Devendra Sachan, Satyen Kale, Sanjiv Kumar (2019).
+    "Adaptive Methods for Nonconvex Optimization".
+    https://papers.nips.cc/paper/2018/hash/90365351ccc7437a1309dc64e4db32a3-Abstract.html</code></pre>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ERM" class="doc_header"><code>class</code> <code>ERM</code><a href="https://github.com/Nixtla/hierarchicalforecast/tree/main/hierarchicalforecast/methods.py#L308" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ERM</code>(<strong><code>method</code></strong>:<code>str</code>, <strong><code>y_valid</code></strong>:<code>array</code>, <strong><code>y_valid_hat</code></strong>:<code>array</code>, <strong><code>l1_reg</code></strong>:<code>int</code>=<em><code>300</code></em>, <strong><code>learning_rate</code></strong>:<code>float</code>=<em><code>0.1</code></em>, <strong><code>batch_size</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>max_iters</code></strong>:<code>int</code>=<em><code>6000</code></em>, <strong><code>init_zeros</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
 </blockquote>
 
 </div>
@@ -199,5 +463,5 @@ nb_path: "nbs/methods.ipynb"
     {% endraw %}
 
 </div>
-
+ 
 

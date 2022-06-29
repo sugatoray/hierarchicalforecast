@@ -11,6 +11,7 @@ index = {"HierarchicalReconciliation": "core.ipynb",
          "min_trace": "methods.ipynb",
          "MinTrace": "methods.ipynb",
          "erm": "methods.ipynb",
+         "AdamOptimizer": "methods.ipynb",
          "ERM": "methods.ipynb",
          "hierarchize": "utils.ipynb"}
 
